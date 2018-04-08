@@ -97,7 +97,7 @@ class CalendarWidget extends React.Component {
                             yearChanged={this.yearChanged}
                         />
                         <CalendarNavigation
-                            className='navigation right'
+                            className='right'
                             navigateUp={this.prevMonth}
                             navigateDown={this.nextMonth}
                         />

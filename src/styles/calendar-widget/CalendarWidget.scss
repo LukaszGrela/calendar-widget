@@ -15,8 +15,15 @@ $squareRatioHalf: percentage(1/14);
         margin-right: 4%;
         margin-bottom: 3.2rem;
         .today {
+            cursor: default;
             color: $color-blue;
             font-size: 3.2rem;
+            -webkit-transition: all .25s ease;
+            -o-transition: all .25s ease;
+            transition: all .25s ease;
+            &:hover {
+                color: #f1f1f1;
+            }
         }
         .middle {
             text-align: center;
@@ -31,24 +38,45 @@ $squareRatioHalf: percentage(1/14);
             order: 1;
         }
         .month-navigation {
+            width: 7rem;
             svg {
                 width: 2.4rem;
                 fill: $primary-color;
+                -webkit-transition: all .25s ease;
+                -o-transition: all .25s ease;
+                transition: all .25s ease;
             }
             button {
                 width: 3.2rem;
                 height: 3.2rem;
                 border: none;
                 background: none;
+                &:hover svg {
+                    fill: $color-blue
+                }
             }
         }
         .year-month-selectors {
+            select.year-selector {
+                padding-left: 0.5rem;
+            }
             select {
+                width: 5rem;
                 outline: none;
-                border: none;
                 font-size: 1.6rem;
                 background: $color-dark-grey;
                 color: $primary-color;
+                -webkit-appearance: none;
+                padding-left: 1rem;
+                margin: 0.4rem;
+                padding-top: 0.2rem;
+                padding-bottom: 0.2rem;
+                border: none;
+                border-radius: 0;
+                border-bottom: 0.2rem dashed;
+                -webkit-transition: all .25s ease;
+                -o-transition: all .25s ease;
+                transition: all .25s ease;
             }
             select:hover {
                 color: $color-blue
@@ -59,6 +87,7 @@ $squareRatioHalf: percentage(1/14);
         display: flex;
     }
     .day {
+        cursor: default;
         width: $squareRatio;
         padding-top: $squareRatioHalf - 2;
         padding-bottom: $squareRatioHalf - 2;
