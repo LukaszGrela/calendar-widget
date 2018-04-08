@@ -47,7 +47,8 @@ class CalendarMonthGrid extends React.Component {
                             key={index}
                             className={`week row-${index}`}
                             days={week}
-                            now={now} />
+                            now={now}
+                            current={date} />
                     })
                 }
             </div>

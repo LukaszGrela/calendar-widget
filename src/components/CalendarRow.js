@@ -6,14 +6,14 @@ import { momentObj } from 'react-moment-proptypes';
 const noop = () => { };
 class CalendarRow extends React.Component {
     render = () => {
-        const { className, days, now , dayClicked = noop} = this.props;
+        const { className, days, now, current, dayClicked = noop} = this.props;
         return (
             <div className={'row' + (className ? ' ' + className : '')}>
                 {
                     days.map((day, index) => {
 
-                        const spill = typeof date === 'string' || !now ? '' :
-                            (day.month() !== now.month() ? ' spill' : '');
+                        const spill = typeof date === 'string' || !current ? '' :
+                            (day.month() !== current.month() ? ' spill' : '');
                         const today = typeof date === 'string' || !now ? '' :
                             (day.month() === now.month() &&
                                 day.date() === now.date() &&
@@ -34,6 +34,7 @@ class CalendarRow extends React.Component {
 CalendarRow.propTypes = {
     days: PropTypes.array.isRequired,
     now: momentObj,
+    current: momentObj,
     dayClicked: PropTypes.func
 }
 
