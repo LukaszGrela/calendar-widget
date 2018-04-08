@@ -1,17 +1,66 @@
-$squareRatio: ((1/7) * 100);
-$squareRatioHalf: ($squareRatio / 2) + %;
+$primary-color:#f1f1f1;
+$color-blue:rgb(107, 164, 221);
+$color-dark-grey:#2f2f2f;
+$squareRatio: percentage(1/7);
+$squareRatioHalf: percentage(1/14);
 .CalendarWidget {
     width: 80%;
-    margin: 0 auto;
+    max-width: 64rem;
+    margin: 3.2rem auto;
+    .calendar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 4%;
+        margin-right: 4%;
+        margin-bottom: 3.2rem;
+        .today {
+            color: $color-blue;
+            font-size: 3.2rem;
+        }
+        .middle {
+            order: 0;
+        }
+        .left {
+            order: -1;
+        }
+        .right {
+            order: 1;
+        }
+        .month-navigation {
+            svg {
+                width: 2.4rem;
+                fill: $primary-color;
+            }
+            button {
+                width: 3.2rem;
+                height: 3.2rem;
+                border: none;
+                background: none;
+            }
+        }
+        .year-month-selectors {
+            select {
+                outline: none;
+                border: none;
+                font-size: 1.6rem;
+                background: $color-dark-grey;
+                color: $primary-color;
+            }
+            select:hover {
+                color: $color-blue
+            }
+        }
+    }
     .row {
         display: flex;
     }
     .day {
-        background-color: #aaa;
-        width: $squareRatio+%;
-        padding-top: $squareRatioHalf;
-        padding-bottom: $squareRatioHalf;
+        width: $squareRatio;
+        padding-top: $squareRatioHalf - 2;
+        padding-bottom: $squareRatioHalf - 2;
         text-align: center;
+        font-weight: bold;
     }
     .calendar-view {
         display: flex;
@@ -20,5 +69,25 @@ $squareRatioHalf: ($squareRatio / 2) + %;
     .week-header .day {
         padding-top: 1%;
         padding-bottom: 1%;
+        margin-bottom: 2%;
+    }
+    .month-grid .day {
+        &:hover {
+            outline: dashed 0.2rem $color-blue;
+            outline-offset: -0.4rem;
+        }
+    }
+    .month-grid .day.today {
+        background-color: $color-blue;
+        color: $color-dark-grey;
+        outline: solid 0.2rem $color-dark-grey;
+        outline-offset: -0.4rem;
+        &:hover {
+            outline-style: dashed;
+        }
+    }
+    .spill {
+        color: darken($color: $primary-color, $amount: 33);
+        font-weight: normal;
     }
 }
