@@ -14,7 +14,9 @@ class CalendarRow extends React.Component {
                         const spill = typeof date === 'string' || !now ? '' :
                             (day.month() !== now.month() ? ' spill' : '');
                         const today = typeof date === 'string' || !now ? '' :
-                            (day.month() === now.month() && day.date() === now.date() ? ' today' : '');
+                            (day.month() === now.month() &&
+                                day.date() === now.date() &&
+                                day.year() === now.year() ? ' today' : '');
 
                         return <CalendarDay
                             key={index}
