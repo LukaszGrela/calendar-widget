@@ -82,7 +82,10 @@ class CalendarWidget extends React.Component {
             <div className='CalendarWidget'>
                 <div className='month-page'>
                     <div className='calendar-header'>
-                        <div className='today middle'>{now.format('MMMM Do YYYY')}</div>
+                        <div className='today middle'
+                            onClick={() => {
+                                this.today();
+                            }}>{now.format('MMMM Do YYYY')}</div>
                         <CalendarYearMonthSelectors
                             className='left'
                             year={dateRef.year()}
