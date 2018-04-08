@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import { getYearList } from '../utils/helpers';
 
 const noop = () => { };
 const CalendarYearMonthSelectors = (props) => {
     const { className, month, year, monthChanged = noop, yearChanged = noop } = props;
     const monthList = moment.monthsShort();
     const selectedMonth = monthList[month];
-    const yearList = [year - 10, year - 9, year - 8, year - 7, year - 6, year - 5, year - 4, year - 3, year - 2, year - 1,
-        year,
-    year + 1, year + 2, year + 3, year + 4, year + 5, year + 6, year + 7, year + 8, year + 9, year + 10];
+    const yearList = getYearList(year, 50);
     return (
         <div className={`year-month-selectors ${className}`}>
             <select

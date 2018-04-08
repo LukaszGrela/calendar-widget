@@ -3,36 +3,7 @@ import PropTypes from 'prop-types';
 import { momentObj } from 'react-moment-proptypes';
 import moment from 'moment';
 import CalendarRow from './CalendarRow';
-
-const calendarDates = (now) => {
-    const monthLength = now.daysInMonth();
-    const firstOfMonth = now.clone().date(1);
-    const startsAt = firstOfMonth.day();
-    let weeks = [
-        [],
-        [],
-        [],
-        [],
-        [],
-        []
-    ];//6 weeks always to allow for 31days starting at last day of week
-    let start = -startsAt;
-    let week = 0;
-    while (week < weeks.length) {
-        let weekDay = 0;
-        while (weekDay < 7) {
-            console.log(week, weekDay, start);
-            weeks[week].push(firstOfMonth.clone().add(start, 'days'));
-            start++;
-            weekDay++;
-        }
-        week++;
-    }
-
-
-
-    return weeks;
-}
+import { calendarDates } from '../utils/helpers';
 
 class CalendarMonthGrid extends React.Component {
     render() {
