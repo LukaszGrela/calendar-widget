@@ -17,6 +17,13 @@ body {
 article.widgets {
     display: flex;
     justify-content: space-around;
+    @media only screen
+    and (max-width : 41rem)
+    {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 article.widgets > * {
     margin: 1rem;
