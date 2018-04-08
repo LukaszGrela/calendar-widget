@@ -19,12 +19,15 @@ $squareRatioHalf: percentage(1/14);
             font-size: 3.2rem;
         }
         .middle {
+            text-align: center;
             order: 0;
         }
         .left {
+            text-align: center;
             order: -1;
         }
         .right {
+            text-align: center;
             order: 1;
         }
         .month-navigation {
