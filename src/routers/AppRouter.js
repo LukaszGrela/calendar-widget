@@ -11,6 +11,11 @@ const AppRouter = () => (
                 <Route path="/" exact component={Home} />
                 <Route component={Page404} />
             </Switch>
+            <footer>
+                <div className='credits'>
+                    Arrow Up/Down by Design Effectz from the Noun Project
+            </div>
+            </footer>
         </div>
     </BrowserRouter>
 );
