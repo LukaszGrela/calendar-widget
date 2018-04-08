@@ -1,14 +1,16 @@
+@import './_colors.scss';
 @import './calendar-widget/CalendarWidget.scss';
-
 html {
     font-size: 62.5%;
 }
+
 body {
-    color: #dddddd;
-    background-color: #2f2f2f;
+    color: $primary-color;
+    background-color: $color-dark-grey;
     font-size: 1.6rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 * {
     padding: 0;
     margin: 0;
@@ -17,18 +19,28 @@ body {
 article.widgets {
     display: flex;
     justify-content: space-around;
-    @media only screen
-    and (max-width : 41rem)
-    {
+    @media only screen and (max-width: 41rem) {
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
 }
-article.widgets > * {
+
+article {
     margin: 1rem;
 }
-footer .credits {
-    text-align: center;
-    font-size: 1.2rem;
+
+footer {
+    margin: 1rem auto;
+    .credits {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+}
+
+header {
+    margin: 1rem auto;
+    h1 {
+        margin: 0 1rem;
+    }
 }

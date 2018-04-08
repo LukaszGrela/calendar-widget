@@ -21,7 +21,6 @@ class Home extends React.Component {
         return (
             <section>
                 <article>
-                    <h1>Calendar Widget</h1>
                     <p>The Code Exercise for JS/React Developer</p>
                 </article>
                 <article className='widgets'>

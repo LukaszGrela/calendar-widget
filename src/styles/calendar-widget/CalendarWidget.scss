@@ -1,10 +1,7 @@
-$primary-color:#f1f1f1;
-$color-blue:rgb(107, 164, 221);
-$color-dark-grey:#2f2f2f;
 $squareRatio: percentage(1/7);
 $squareRatioHalf: percentage(1/14);
 .CalendarWidget {
-    width: 90%;
+    width: 100%;
     max-width: 64rem;
     margin: 3.2rem auto;
     .calendar-header {

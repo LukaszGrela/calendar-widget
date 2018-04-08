@@ -7,7 +7,7 @@ import moment from 'moment';
 const AppRouter = () => (
     <BrowserRouter>
         <div>
-            <header></header>
+            <header><h1>Calendar Widget</h1></header>
             <Switch>
                 <Route exact path="(/|/index.html)" component={() => {
                     const now = moment();
@@ -19,7 +19,7 @@ const AppRouter = () => (
             <footer>
                 <div className='credits'>
                     Arrow Up/Down by Design Effectz from the Noun Project
-            </div>
+                </div>
             </footer>
         </div>
     </BrowserRouter>
