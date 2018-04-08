@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import CalendarDay from './CalendarDay';
 import { momentObj } from 'react-moment-proptypes';
 
+const noop = () => { };
 class CalendarRow extends React.Component {
     render = () => {
-        const { className, days, now } = this.props;
+        const { className, days, now , dayClicked = noop} = this.props;
         return (
             <div className={'row' + (className ? ' ' + className : '')}>
                 {
@@ -22,6 +23,7 @@ class CalendarRow extends React.Component {
                             key={index}
                             className={`day-${index}${spill}${today}`}
                             date={day}
+                            handleClick={dayClicked}
                         />
                     })
                 }
@@ -31,7 +33,8 @@ class CalendarRow extends React.Component {
 }
 CalendarRow.propTypes = {
     days: PropTypes.array.isRequired,
-    now: momentObj
+    now: momentObj,
+    dayClicked: PropTypes.func
 }
 
 export default CalendarRow;
