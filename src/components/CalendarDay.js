@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { momentObj } from 'react-moment-proptypes';
-
-const noop = () => { };
+import { noop } from '../utils/helpers';
 
 class CalendarDay extends React.Component {
     render = () => {

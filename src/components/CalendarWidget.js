@@ -6,15 +6,14 @@ import CalendarRow from './CalendarRow';
 import CalendarMonthGrid from './CalendarMonthGrid';
 import CalendarNavigation from './CalendarNavigation';
 import CalendarYearMonthSelectors from './CalendarYearMonthSelectors';
-
-const noop = () => { };
+import { noop } from '../utils/helpers';
 
 class CalendarWidget extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            dateRef: (props.now && props.now.clone()) || moment()
+            dateRef: (props.currentMonth && props.currentMonth.clone()) || moment()
         }
     }
 
@@ -23,25 +22,26 @@ class CalendarWidget extends React.Component {
             dateRef: prevState.dateRef.clone().add(1, 'months')
         }), _ => {
             const { onDateChanged = noop } = this.props;
-            onDateChanged();
+            onDateChanged(this.state.dateRef);
         });
     }
+
     prevMonth = () => {
         this.setState(prevState => ({
             dateRef: prevState.dateRef.clone().subtract(1, 'months')
         }), _ => {
             const { onDateChanged = noop } = this.props;
-            onDateChanged();
+            onDateChanged(this.state.dateRef);
         });
     }
 
     today = () => {
 
-        const { now = moment(), onDateChanged = noop } = this.props;
+        const { todayDate = moment(), onDateChanged = noop } = this.props;
         this.setState(prevState => ({
-            dateRef: now
+            dateRef: todayDate
         }), _ => {
-            onDateChanged();
+            onDateChanged(this.state.dateRef);
         });
     }
 
@@ -50,33 +50,36 @@ class CalendarWidget extends React.Component {
             dateRef: prevState.dateRef.clone().month(month)
         }), _ => {
             const { onDateChanged = noop } = this.props;
-            onDateChanged();
+            onDateChanged(this.state.dateRef);
         });
     }
+
     yearChanged = (year) => {
         const nYear = parseInt(year, 10);
         this.setState(prevState => ({
             dateRef: prevState.dateRef.clone().year(nYear)
         }), _ => {
             const { onDateChanged = noop } = this.props;
-            onDateChanged();
+            onDateChanged(this.state.dateRef);
         });
     }
 
     componentWillReceiveProps = (nextProps) => {
-        const { now } = nextProps;
+        const { currentMonth } = nextProps;
         const { dateRef } = this.props;
-        if (!dateRef || now.date() !== dateRef.date() || now.month() !== dateRef.month() || now.year() !== dateRef.year()) {
+        if (!dateRef || currentMonth.date() !== dateRef.date() || currentMonth.month() !== dateRef.month() || currentMonth.year() !== dateRef.year()) {
             // different or new
             this.setState(prevState => ({
-                dateRef: now.clone()
+                dateRef: currentMonth.clone()
             }));
         }
     }
 
     render = () => {
         const { dateRef = moment() } = this.state;
-        const { now = moment() } = this.props;
+        const { currentMonth = moment(),
+            todayDate: now = moment(),
+            onDateChanged = noop } = this.props;
         console.log('dateRef', dateRef);
         return (
             <div className='CalendarWidget'>
@@ -106,7 +109,8 @@ class CalendarWidget extends React.Component {
 
                         <CalendarMonthGrid
                             date={dateRef}
-                            now={now} />
+                            now={now}
+                            dayClicked={onDateChanged} />
                     </div>
                 </div>
             </div>
@@ -115,7 +119,8 @@ class CalendarWidget extends React.Component {
 }
 
 CalendarWidget.propTypes = {
-    now: momentObj,
+    todayDate: momentObj,
+    currentMonth: momentObj,
     onDateChanged: PropTypes.func
 }
 

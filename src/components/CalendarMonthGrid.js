@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { momentObj } from 'react-moment-proptypes';
 import moment from 'moment';
 import CalendarRow from './CalendarRow';
-import { calendarDates } from '../utils/helpers';
+import { calendarDates, noop } from '../utils/helpers';
 
 class CalendarMonthGrid extends React.Component {
     render() {
-        const { now, date } = this.props;
+        const { now, date, dayClicked = noop } = this.props;
         const weeks = calendarDates(date);
         console.log(weeks);
         return (
@@ -19,7 +19,8 @@ class CalendarMonthGrid extends React.Component {
                             className={`week row-${index}`}
                             days={week}
                             now={now}
-                            current={date} />
+                            current={date}
+                            dayClicked={dayClicked} />
                     })
                 }
             </div>
@@ -29,6 +30,7 @@ class CalendarMonthGrid extends React.Component {
 CalendarMonthGrid.propTypes = {
     now: momentObj.isRequired,
     date: momentObj.isRequired,
+    dayClicked: PropTypes.func
 }
 
 export default CalendarMonthGrid;

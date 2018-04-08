@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CalendarDay from './CalendarDay';
 import { momentObj } from 'react-moment-proptypes';
+import { noop } from '../utils/helpers';
 
-const noop = () => { };
 class CalendarRow extends React.Component {
     render = () => {
         const { className, days, now, current, dayClicked = noop} = this.props;

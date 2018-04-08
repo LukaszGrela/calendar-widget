@@ -1,3 +1,5 @@
+export const noop = () => { };
+
 export const getYearList = (start, around) => {
     let years = [];
     for (let i = start - around; i < start + around; i++) {
@@ -25,7 +27,6 @@ export const calendarDates = (now) => {
     while (week < weeks.length) {
         let weekDay = 0;
         while (weekDay < 7) {
-            console.log(week, weekDay, start);
             weeks[week].push(firstOfMonth.clone().add(start, 'days'));
             start++;
             weekDay++;
