@@ -2,7 +2,7 @@ export const noop = () => { };
 
 export const getYearList = (start, around) => {
     let years = [];
-    for (let i = start - around; i < start + around; i++) {
+    for (let i = start - around; i <= start + around; i++) {
         years.push(i);
     }
     return years;
