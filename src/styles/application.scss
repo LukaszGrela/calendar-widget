@@ -1,5 +1,7 @@
 @import './_colors.scss';
 @import './calendar-widget/CalendarWidget.scss';
+@import './LinkedCalendars.scss';
+@import './Home.scss';
 html {
     font-size: 62.5%;
 }
@@ -43,4 +45,22 @@ header {
     h1 {
         margin: 0 1rem;
     }
+}
+
+nav {
+    margin: 1rem auto;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align:center;
+}
+
+nav a {
+    color: $color-blue;
+    font-size: 3.2rem;
+    -webkit-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    transition: all .25s ease;
+}
+nav a:hover {
+    color: $primary-color;
 }

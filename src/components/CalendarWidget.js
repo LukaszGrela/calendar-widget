@@ -79,10 +79,10 @@ class CalendarWidget extends React.Component {
         const { dateRef = moment() } = this.state;
         const { currentMonth = moment(),
             todayDate: now = moment(),
-            onDateChanged = noop } = this.props;
-        console.log('dateRef', dateRef);
+            onDateChanged = noop,
+            className } = this.props;
         return (
-            <div className='CalendarWidget'>
+            <div className={`CalendarWidget ${className}`}>
                 <div className='month-page'>
                     <div className='calendar-header'>
                         <div className='today middle'
