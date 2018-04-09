@@ -7,3 +7,20 @@ test('should render correctly', () => {
 
     expect(wrapper).toMatchSnapshot();
 })
+
+test('should render correctly with props', ()=> {
+
+    const wrapper = shallow(<RouterCalendar 
+        match={
+            {
+                params: {
+                    year:'1979',
+                    month:'6',
+                    date:'13'
+                }
+            }
+        }
+    />);
+
+    expect(wrapper).toMatchSnapshot();
+});
