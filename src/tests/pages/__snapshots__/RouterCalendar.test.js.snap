@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<section>
+  <article>
+    <p>
+      The Code Exercise for JS/React Developer - calendar date is fed from the route
+    </p>
+  </article>
+  <article
+    className="widgets"
+  >
+    <CalendarWidget
+      currentMonth={"1970-01-01T00:00:00.000Z"}
+      onDateChanged={[Function]}
+      todayDate={"1970-01-01T00:00:00.000Z"}
+    />
+  </article>
+  <nav>
+    <NavLink
+      activeClassName="active"
+      ariaCurrent="true"
+      to="/"
+    >
+      Home
+    </NavLink>
+  </nav>
+</section>
+`;

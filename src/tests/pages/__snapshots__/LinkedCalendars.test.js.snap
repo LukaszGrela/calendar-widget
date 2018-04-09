@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<section
+  className="linked-calendars"
+>
+  <article>
+    <p>
+      The Code Exercise for JS/React Developer
+    </p>
+  </article>
+  <article
+    className="widgets"
+  >
+    <CalendarWidget
+      className="linked currentMonth"
+      currentMonth={"1970-01-01T00:00:00.000Z"}
+      onDateChanged={[Function]}
+      todayDate={"1970-01-01T00:00:00.000Z"}
+    />
+    <CalendarWidget
+      className="linked nextMonth"
+      currentMonth={"1970-02-01T00:00:00.000Z"}
+      onDateChanged={[Function]}
+      todayDate={"1970-01-01T00:00:00.000Z"}
+    />
+  </article>
+  <nav>
+    <NavLink
+      activeClassName="active"
+      ariaCurrent="true"
+      to="/"
+    >
+      Home
+    </NavLink>
+  </nav>
+</section>
+`;
