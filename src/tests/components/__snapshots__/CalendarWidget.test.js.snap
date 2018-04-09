@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render correctly 1`] = `
+<div
+  className="CalendarWidget undefined"
+>
+  <div
+    className="month-page"
+  >
+    <div
+      className="calendar-header"
+    >
+      <div
+        className="today middle"
+        onClick={[Function]}
+      >
+        June 13th 1979
+      </div>
+      <CalendarYearMonthSelectors
+        className="left"
+        month={0}
+        monthChanged={[Function]}
+        year={1970}
+        yearChanged={[Function]}
+      />
+      <CalendarNavigation
+        className="right"
+        navigateDown={[Function]}
+        navigateUp={[Function]}
+      />
+    </div>
+    <div
+      className="calendar-view"
+    >
+      <CalendarRow
+        className="week-header"
+        days={
+          Array [
+            "Sun",
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri",
+            "Sat",
+          ]
+        }
+      />
+      <CalendarMonthGrid
+        date={"1970-01-01T00:00:00.000Z"}
+        dayClicked={[Function]}
+        now={"1979-06-12T23:00:00.000Z"}
+      />
+    </div>
+  </div>
+</div>
+`;
