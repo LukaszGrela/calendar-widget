@@ -11,8 +11,8 @@ class RouterCalendar extends React.Component {
     }
 
     render = () => {
-        const { match } = this.props;
-        const { params } = match;
+        const { match = {}  } = this.props;
+        const { params = {} } = match;
         let current = moment();
         const { year, month, date } = params;
         if (year) current.year(parseInt(year, 10));
