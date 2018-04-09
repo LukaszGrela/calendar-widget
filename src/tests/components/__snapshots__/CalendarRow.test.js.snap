@@ -1,0 +1,197 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<div
+  className="row"
+>
+  <CalendarDay
+    className="day-0"
+    date={"1969-12-28T00:00:00.000Z"}
+    handleClick={[Function]}
+    key="0"
+  />
+  <CalendarDay
+    className="day-1"
+    date={"1969-12-29T00:00:00.000Z"}
+    handleClick={[Function]}
+    key="1"
+  />
+  <CalendarDay
+    className="day-2"
+    date={"1969-12-30T00:00:00.000Z"}
+    handleClick={[Function]}
+    key="2"
+  />
+  <CalendarDay
+    className="day-3"
+    date={"1969-12-31T00:00:00.000Z"}
+    handleClick={[Function]}
+    key="3"
+  />
+  <CalendarDay
+    className="day-4"
+    date={"1970-01-01T00:00:00.000Z"}
+    handleClick={[Function]}
+    key="4"
+  />
+  <CalendarDay
+    className="day-5"
+    date={"1970-01-02T00:00:00.000Z"}
+    handleClick={[Function]}
+    key="5"
+  />
+  <CalendarDay
+    className="day-6"
+    date={"1970-01-03T00:00:00.000Z"}
+    handleClick={[Function]}
+    key="6"
+  />
+</div>
+`;
+
+exports[`should render correctly apply spill and today class 1`] = `
+<div
+  className="row"
+>
+  <CalendarDay
+    className="day-0 spill"
+    date={"1969-12-28T00:00:00.000Z"}
+    handleClick={[Function]}
+    key="0"
+  />
+  <CalendarDay
+    className="day-1 spill"
+    date={"1969-12-29T00:00:00.000Z"}
+    handleClick={[Function]}
+    key="1"
+  />
+  <CalendarDay
+    className="day-2 spill"
+    date={"1969-12-30T00:00:00.000Z"}
+    handleClick={[Function]}
+    key="2"
+  />
+  <CalendarDay
+    className="day-3 spill"
+    date={"1969-12-31T00:00:00.000Z"}
+    handleClick={[Function]}
+    key="3"
+  />
+  <CalendarDay
+    className="day-4 today"
+    date={"1970-01-01T00:00:00.000Z"}
+    handleClick={[Function]}
+    key="4"
+  />
+  <CalendarDay
+    className="day-5"
+    date={"1970-01-02T00:00:00.000Z"}
+    handleClick={[Function]}
+    key="5"
+  />
+  <CalendarDay
+    className="day-6"
+    date={"1970-01-03T00:00:00.000Z"}
+    handleClick={[Function]}
+    key="6"
+  />
+</div>
+`;
+
+exports[`should render correctly week labels 1`] = `
+<div
+  className="row"
+>
+  <CalendarDay
+    className="day-0"
+    date="mon"
+    handleClick={[Function]}
+    key="0"
+  />
+  <CalendarDay
+    className="day-1"
+    date="tue"
+    handleClick={[Function]}
+    key="1"
+  />
+  <CalendarDay
+    className="day-2"
+    date="wed"
+    handleClick={[Function]}
+    key="2"
+  />
+  <CalendarDay
+    className="day-3"
+    date="thu"
+    handleClick={[Function]}
+    key="3"
+  />
+  <CalendarDay
+    className="day-4"
+    date="fri"
+    handleClick={[Function]}
+    key="4"
+  />
+  <CalendarDay
+    className="day-5"
+    date="sat"
+    handleClick={[Function]}
+    key="5"
+  />
+  <CalendarDay
+    className="day-6"
+    date="sun"
+    handleClick={[Function]}
+    key="6"
+  />
+</div>
+`;
+
+exports[`should render correctly with given className 1`] = `
+<div
+  className="row my-class"
+>
+  <CalendarDay
+    className="day-0"
+    date={"1969-12-28T00:00:00.000Z"}
+    handleClick={[Function]}
+    key="0"
+  />
+  <CalendarDay
+    className="day-1"
+    date={"1969-12-29T00:00:00.000Z"}
+    handleClick={[Function]}
+    key="1"
+  />
+  <CalendarDay
+    className="day-2"
+    date={"1969-12-30T00:00:00.000Z"}
+    handleClick={[Function]}
+    key="2"
+  />
+  <CalendarDay
+    className="day-3"
+    date={"1969-12-31T00:00:00.000Z"}
+    handleClick={[Function]}
+    key="3"
+  />
+  <CalendarDay
+    className="day-4"
+    date={"1970-01-01T00:00:00.000Z"}
+    handleClick={[Function]}
+    key="4"
+  />
+  <CalendarDay
+    className="day-5"
+    date={"1970-01-02T00:00:00.000Z"}
+    handleClick={[Function]}
+    key="5"
+  />
+  <CalendarDay
+    className="day-6"
+    date={"1970-01-03T00:00:00.000Z"}
+    handleClick={[Function]}
+    key="6"
+  />
+</div>
+`;
