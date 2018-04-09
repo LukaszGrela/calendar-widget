@@ -7,7 +7,7 @@ import { noop } from '../utils/helpers';
 const CalendarNavigation = (props) => {
     const { className, navigateUp = noop, navigateDown = noop } = props;
     return (
-        <div className={`month-navigation ${className}`}>
+        <div className={'month-navigation' + (className ? ' ' + className : '')}>
             <button onClick={() => {
                 navigateUp()
             }}><IconUp /></button><button onClick={() => {
