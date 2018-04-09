@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<div
+  className="month-navigation"
+>
+  <button
+    onClick={[Function]}
+  >
+    <IconUp />
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <IconDown />
+  </button>
+</div>
+`;
+
+exports[`should render correctly with given className 1`] = `
+<div
+  className="month-navigation my-class"
+>
+  <button
+    onClick={[Function]}
+  >
+    <IconUp />
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    <IconDown />
+  </button>
+</div>
+`;
