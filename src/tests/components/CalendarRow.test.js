@@ -12,15 +12,15 @@ beforeEach(() => {
     days = calendarDates(now);
     wrapper = shallow(<CalendarRow
         days={days[0]}
-    />)
-})
+    />);
+});
 test('should render correctly', () => {
     // labels
     expect(wrapper).toMatchSnapshot();
 });
 test('should render correctly week labels', () => {
     wrapper.setProps({
-        days: ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
+        days: ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
     });
     expect(wrapper).toMatchSnapshot();
 });
@@ -28,7 +28,7 @@ test('should render correctly week labels', () => {
 test('should render correctly with given className', () => {
     wrapper.setProps({
         className: 'my-class'
-    })
+    });
     expect(wrapper).toMatchSnapshot();
 });
 

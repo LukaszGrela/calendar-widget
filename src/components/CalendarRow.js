@@ -6,7 +6,7 @@ import { noop } from '../utils/helpers';
 
 class CalendarRow extends React.Component {
     render = () => {
-        const { className, days, now, current, dayClicked = noop} = this.props;
+        const { className, days, now, current, dayClicked = noop } = this.props;
         return (
             <div className={'row' + (className ? ' ' + className : '')}>
                 {
@@ -19,23 +19,26 @@ class CalendarRow extends React.Component {
                                 day.date() === now.date() &&
                                 day.year() === now.year() ? ' today' : '');
 
-                        return <CalendarDay
-                            key={index}
-                            className={`day-${index}${spill}${today}`}
-                            date={day}
-                            handleClick={dayClicked}
-                        />
+                        return (
+                            <CalendarDay
+                                key={index}
+                                className={`day-${index}${spill}${today}`}
+                                date={day}
+                                handleClick={dayClicked}
+                            />
+                        );
                     })
                 }
             </div>
-        )
+        );
     }
 }
 CalendarRow.propTypes = {
     days: PropTypes.array.isRequired,
     now: momentObj,
     current: momentObj,
-    dayClicked: PropTypes.func
-}
+    dayClicked: PropTypes.func,
+    className: PropTypes.string
+};
 
 export default CalendarRow;
