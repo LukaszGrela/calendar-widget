@@ -9,7 +9,6 @@ class CalendarMonthGrid extends React.Component {
     render() {
         const { now, date, dayClicked = noop } = this.props;
         const weeks = calendarDates(date);
-        console.log(weeks);
         return (
             <div className='month-grid'>
                 {
