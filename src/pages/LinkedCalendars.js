@@ -1,7 +1,8 @@
 import React from 'react';
 import moment from 'moment';
-import CalendarWidget from '../components/CalendarWidget';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import CalendarWidget from '../components/CalendarWidget';
 
 class LinkedCalendars extends React.Component {
 
@@ -9,19 +10,19 @@ class LinkedCalendars extends React.Component {
         super(props);
         this.state = {
             current: props.current || moment()
-        }
+        };
     }
 
     currentCalendarDateChanged = (date) => {
         // set state - this will move next calendar to be one month forward
-        this.setState(prevState => ({
+        this.setState(() => ({
             current: date.clone()
         }));
     }
     nextCalendarDateChanged = (date) => {
         // set state to be a month less than selected
 
-        this.setState(prevState => ({
+        this.setState(() => ({
             current: date.clone().subtract(1, 'months')
         }));
     }
@@ -33,7 +34,7 @@ class LinkedCalendars extends React.Component {
         return (
             <section className='linked-calendars'>
                 <article>
-                    <p>The Code Exercise for JS/React Developer</p>
+                    <p>React Calendar Widget example.</p>
                 </article>
                 <article className='widgets'>
                     <CalendarWidget
@@ -53,5 +54,9 @@ class LinkedCalendars extends React.Component {
             </section>
         );
     }
+}
+
+LinkedCalendars.propTypes = {
+    current: PropTypes.object
 };
 export default LinkedCalendars;
