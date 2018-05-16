@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 import CalendarWidget from '../components/CalendarWidget';
 import NavLink from 'react-router-dom/NavLink';
 
@@ -16,13 +17,13 @@ class RouterCalendar extends React.Component {
         let current = moment();
         const { year, month, date } = params;
         if (year) current.year(parseInt(year, 10));
-        if (month) current.month(parseInt(month, 10) - 1);
-        if (date) current.date(parseInt(date, 10));
+        if (month) current.month((parseInt(month, 10) || 1) - 1);
+        if (date) current.date(parseInt(date, 10) || 1);
 
         return (
             <section>
                 <article>
-                    <p>The Code Exercise for JS/React Developer - calendar date is fed from the route</p>
+                    <p>React Calendar Widget example - calendar date is fed from the route</p>
                 </article>
                 <article className='widgets'>
                     <CalendarWidget
@@ -36,5 +37,11 @@ class RouterCalendar extends React.Component {
             </section>
         );
     }
+}
+
+RouterCalendar.propTypes = {
+    match: PropTypes.object,
+    history: PropTypes.object
 };
+
 export default RouterCalendar;
