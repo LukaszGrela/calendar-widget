@@ -30,9 +30,10 @@ const CalendarYearMonthSelectors = (props) => {
                 }
             </select>
         </div>
-    )
-}
+    );
+};
 CalendarYearMonthSelectors.propTypes = {
+    className: PropTypes.string,
     year: PropTypes.number.isRequired,
     month: PropTypes.number.isRequired,
     monthChanged: PropTypes.func,
