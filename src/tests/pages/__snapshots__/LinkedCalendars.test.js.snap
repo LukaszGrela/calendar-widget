@@ -6,7 +6,7 @@ exports[`should render correctly 1`] = `
 >
   <article>
     <p>
-      The Code Exercise for JS/React Developer
+      React Calendar Widget example.
     </p>
   </article>
   <article

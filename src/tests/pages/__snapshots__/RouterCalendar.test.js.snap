@@ -4,7 +4,7 @@ exports[`should render correctly 1`] = `
 <section>
   <article>
     <p>
-      The Code Exercise for JS/React Developer - calendar date is fed from the route
+      React Calendar Widget example - calendar date is fed from the route
     </p>
   </article>
   <article
@@ -32,7 +32,7 @@ exports[`should render correctly with props 1`] = `
 <section>
   <article>
     <p>
-      The Code Exercise for JS/React Developer - calendar date is fed from the route
+      React Calendar Widget example - calendar date is fed from the route
     </p>
   </article>
   <article
