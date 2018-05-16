@@ -5,12 +5,12 @@ exports[`should render correctly 1`] = `
   className="month-navigation"
 >
   <button
-    onClick={[Function]}
+    onClick={[MockFunction]}
   >
     <IconUp />
   </button>
   <button
-    onClick={[Function]}
+    onClick={[MockFunction]}
   >
     <IconDown />
   </button>
@@ -22,12 +22,12 @@ exports[`should render correctly with given className 1`] = `
   className="month-navigation my-class"
 >
   <button
-    onClick={[Function]}
+    onClick={[MockFunction]}
   >
     <IconUp />
   </button>
   <button
-    onClick={[Function]}
+    onClick={[MockFunction]}
   >
     <IconDown />
   </button>
