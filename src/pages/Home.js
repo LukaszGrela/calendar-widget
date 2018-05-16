@@ -9,7 +9,7 @@ class Home extends React.Component {
         return (
             <section className='home'>
                 <article>
-                    <p>The Code Exercise for JS/React Developer</p>
+                    <p>React Calendar Widget example.</p>
                 </article>
                 <nav>
                     <NavLink to={`/router-calendar/${now.year()}/${now.month()+1}/${now.date()}`}>Routed Calendar</NavLink>
@@ -18,5 +18,5 @@ class Home extends React.Component {
             </section>
         );
     }
-};
+}
 export default Home;
