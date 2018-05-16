@@ -5,7 +5,7 @@ const Page404 = () => (
     <section className='page-404'>
         <article>
             <h1>404</h1>
-            <p>Can't find what you were after.</p>
+            <p>Can&apos;t find what you were after.</p>
         </article>
         <nav>
             <Link to='/'>Home</Link>
