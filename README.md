@@ -2,4 +2,4 @@
 React Calendar Widget test example
 
 ## Preview
-[Live Example](calendar-widget.greladesign.com)
+[Live Example](http://calendar-widget.greladesign.com)
