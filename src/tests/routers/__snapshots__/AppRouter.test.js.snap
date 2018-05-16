@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render correctly 1`] = `
+<BrowserRouter>
+  <div>
+    <header>
+      <h1>
+        Calendar Widget
+      </h1>
+    </header>
+    <Switch>
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/index.html"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <Route
+        component={[Function]}
+        path="/router-calendar/:year?/:month?/:date?"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/linked-calendars"
+      />
+      <Route
+        component={[Function]}
+      />
+    </Switch>
+    <footer>
+      <div
+        className="credits"
+      >
+        Arrow Up/Down by Design Effectz from the Noun Project
+      </div>
+    </footer>
+  </div>
+</BrowserRouter>
+`;
