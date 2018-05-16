@@ -14,13 +14,13 @@ class CalendarWidget extends React.Component {
         super(props);
         this.state = {
             dateRef: (props.currentMonth && props.currentMonth.clone()) || moment()
-        }
+        };
     }
 
     nextMonth = () => {
         this.setState(prevState => ({
             dateRef: prevState.dateRef.clone().add(1, 'months')
-        }), _ => {
+        }), () => {
             const { onDateChanged = noop } = this.props;
             onDateChanged(this.state.dateRef);
         });
@@ -29,7 +29,7 @@ class CalendarWidget extends React.Component {
     prevMonth = () => {
         this.setState(prevState => ({
             dateRef: prevState.dateRef.clone().subtract(1, 'months')
-        }), _ => {
+        }), () => {
             const { onDateChanged = noop } = this.props;
             onDateChanged(this.state.dateRef);
         });
@@ -38,9 +38,9 @@ class CalendarWidget extends React.Component {
     today = () => {
 
         const { todayDate = moment(), onDateChanged = noop } = this.props;
-        this.setState(prevState => ({
+        this.setState(() => ({
             dateRef: todayDate
-        }), _ => {
+        }), () => {
             onDateChanged(this.state.dateRef);
         });
     }
@@ -48,7 +48,7 @@ class CalendarWidget extends React.Component {
     monthChanged = (month) => {
         this.setState(prevState => ({
             dateRef: prevState.dateRef.clone().month(month)
-        }), _ => {
+        }), () => {
             const { onDateChanged = noop } = this.props;
             onDateChanged(this.state.dateRef);
         });
@@ -58,7 +58,7 @@ class CalendarWidget extends React.Component {
         const nYear = parseInt(year, 10);
         this.setState(prevState => ({
             dateRef: prevState.dateRef.clone().year(nYear)
-        }), _ => {
+        }), () => {
             const { onDateChanged = noop } = this.props;
             onDateChanged(this.state.dateRef);
         });
@@ -69,7 +69,7 @@ class CalendarWidget extends React.Component {
         const { dateRef } = this.props;
         if (!dateRef || currentMonth.date() !== dateRef.date() || currentMonth.month() !== dateRef.month() || currentMonth.year() !== dateRef.year()) {
             // different or new
-            this.setState(prevState => ({
+            this.setState(() => ({
                 dateRef: currentMonth.clone()
             }));
         }
@@ -77,7 +77,7 @@ class CalendarWidget extends React.Component {
 
     render = () => {
         const { dateRef = moment() } = this.state;
-        const { currentMonth = moment(),
+        const {
             todayDate: now = moment(),
             onDateChanged = noop,
             className } = this.props;
@@ -119,9 +119,11 @@ class CalendarWidget extends React.Component {
 }
 
 CalendarWidget.propTypes = {
+    className: PropTypes.string,
+    dateRef: momentObj,
     todayDate: momentObj,
     currentMonth: momentObj,
     onDateChanged: PropTypes.func
-}
+};
 
 export default CalendarWidget;
