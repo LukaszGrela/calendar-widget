@@ -9,7 +9,7 @@ class CalendarMonthGrid extends React.Component {
     renderCalendarWeeks = () => {
         const { now, date, dayClicked = noop } = this.props;
         const weeks = calendarDates(date);
-        weeks.map((week, index) => (
+        return weeks.map((week, index) => (
             <CalendarRow
                 key={index}
                 className={`week row-${index}`}
