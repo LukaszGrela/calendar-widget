@@ -5,29 +5,35 @@ import { momentObj } from 'react-moment-proptypes';
 import { noop } from '../utils/helpers';
 
 class CalendarRow extends React.Component {
+
+    renderCalendarDays = () => {
+        const { days, now, current, dayClicked = noop } = this.props;
+        return days.map((day, index) => {
+
+            const spill = typeof date === 'string' || !current ? '' :
+                (day.month() !== current.month() ? ' spill' : '');
+            const today = typeof date === 'string' || !now ? '' :
+                (day.month() === now.month() &&
+                    day.date() === now.date() &&
+                    day.year() === now.year() ? ' today' : '');
+
+            return (
+                <CalendarDay
+                    key={day}
+                    className={`day-${index}${spill}${today}`}
+                    date={day}
+                    handleClick={dayClicked}
+                />
+            );
+        });
+    }
+
     render = () => {
-        const { className, days, now, current, dayClicked = noop } = this.props;
+        const { className } = this.props;
         return (
             <div className={'row' + (className ? ' ' + className : '')}>
                 {
-                    days.map((day, index) => {
-
-                        const spill = typeof date === 'string' || !current ? '' :
-                            (day.month() !== current.month() ? ' spill' : '');
-                        const today = typeof date === 'string' || !now ? '' :
-                            (day.month() === now.month() &&
-                                day.date() === now.date() &&
-                                day.year() === now.year() ? ' today' : '');
-
-                        return (
-                            <CalendarDay
-                                key={index}
-                                className={`day-${index}${spill}${today}`}
-                                date={day}
-                                handleClick={dayClicked}
-                            />
-                        );
-                    })
+                    this.renderCalendarDays()
                 }
             </div>
         );
