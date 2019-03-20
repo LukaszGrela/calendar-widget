@@ -6,7 +6,7 @@ test('should render correctly', () => {
     const wrapper = shallow(<RouterCalendar />);
 
     expect(wrapper).toMatchSnapshot();
-})
+});
 
 test('should render correctly with props', ()=> {
 

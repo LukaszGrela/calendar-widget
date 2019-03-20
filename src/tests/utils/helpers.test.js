@@ -1,5 +1,5 @@
-import { getYearList, calendarDates } from "../../utils/helpers";
 import moment from 'moment';
+import { getYearList, calendarDates } from '../../utils/helpers';
 
 test('expect to getYearList return correct values', () => {
     const years = getYearList(1979, 2);
@@ -17,4 +17,4 @@ test('expect calendarDates to retun correct value', () => {
     expect(month[0]).toHaveLength(7);
     expect(month[0][startsAt]).toEqual(pointInTime);
     expect(month).toEqual(calendarDates(moment()));
-})
+});
