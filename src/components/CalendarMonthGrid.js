@@ -4,36 +4,28 @@ import { momentObj } from 'react-moment-proptypes';
 import CalendarRow from './CalendarRow';
 import { calendarDates, noop } from '../utils/helpers';
 
-class CalendarMonthGrid extends React.Component {
+const CalendarMonthGrid = props => {
+  const renderCalendarWeeks = () => {
+    const { now, date, dayClicked = noop } = props;
+    const weeks = calendarDates(date);
+    return weeks.map((week, index) => (
+      <CalendarRow
+        key={index}
+        className={`week row-${index}`}
+        days={week}
+        now={now}
+        current={date}
+        dayClicked={dayClicked}
+      />
+    ));
+  };
 
-    renderCalendarWeeks = () => {
-        const { now, date, dayClicked = noop } = this.props;
-        const weeks = calendarDates(date);
-        return weeks.map((week, index) => (
-            <CalendarRow
-                key={index}
-                className={`week row-${index}`}
-                days={week}
-                now={now}
-                current={date}
-                dayClicked={dayClicked} />
-        ));
-    }
-
-    render() {
-        return (
-            <div className='month-grid'>
-                {
-                    this.renderCalendarWeeks()
-                }
-            </div>
-        );
-    }
-}
+  return <div className="month-grid">{renderCalendarWeeks()}</div>;
+};
 CalendarMonthGrid.propTypes = {
-    now: momentObj.isRequired,
-    date: momentObj.isRequired,
-    dayClicked: PropTypes.func
+  now: momentObj.isRequired,
+  date: momentObj.isRequired,
+  dayClicked: PropTypes.func,
 };
 
 export default CalendarMonthGrid;
