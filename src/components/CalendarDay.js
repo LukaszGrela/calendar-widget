@@ -3,25 +3,26 @@ import PropTypes from 'prop-types';
 import { momentObj } from 'react-moment-proptypes';
 import { noop } from '../utils/helpers';
 
-class CalendarDay extends React.Component {
-    clickHandler = () => {
-        const { date, handleClick = noop } = this.props;
-        handleClick(date);
-    }
-    render = () => {
-        const { date, className } = this.props;
+const CalendarDay = props => {
+  const clickHandler = () => {
+    const { date, handleClick = noop } = props;
+    handleClick(date);
+  };
 
-        const text = typeof date === 'string' ? date : date.date();
-        return (
-            <div className={'day' + (className ? ' ' + className : '')}
-                onClick={this.clickHandler}
-            >{text}</div>
-        );
-    }
-}
+  const { date, className } = props;
+  const text = typeof date === 'string' ? date : date.date();
+  return (
+    <div
+      className={'day' + (className ? ' ' + className : '')}
+      onClick={clickHandler}>
+      {text}
+    </div>
+  );
+};
+
 CalendarDay.propTypes = {
-    className: PropTypes.string,
-    date: PropTypes.oneOfType([PropTypes.string, momentObj]).isRequired,
-    handleClick: PropTypes.func
+  className: PropTypes.string,
+  date: PropTypes.oneOfType([PropTypes.string, momentObj]).isRequired,
+  handleClick: PropTypes.func,
 };
 export default CalendarDay;
