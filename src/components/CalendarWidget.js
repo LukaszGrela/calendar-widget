@@ -9,121 +9,87 @@ import CalendarYearMonthSelectors from './CalendarYearMonthSelectors';
 import { noop } from '../utils/helpers';
 
 class CalendarWidget extends React.Component {
+  nextMonth = () => {
+    const { currentMonth, onDateChanged = noop } = this.props;
+    onDateChanged(currentMonth.clone().add(1, 'months'));
+  };
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            dateRef: (props.currentMonth && props.currentMonth.clone()) || moment()
-        };
-    }
+  prevMonth = () => {
+    const { currentMonth, onDateChanged = noop } = this.props;
+    onDateChanged(currentMonth.clone().subtract(1, 'months'));
+  };
 
-    nextMonth = () => {
-        this.setState(prevState => ({
-            dateRef: prevState.dateRef.clone().add(1, 'months')
-        }), () => {
-            const { onDateChanged = noop } = this.props;
-            onDateChanged(this.state.dateRef);
-        });
-    }
+  today = () => {
+    const { todayDate = moment(), onDateChanged = noop } = this.props;
+    onDateChanged(todayDate.clone());
+  };
 
-    prevMonth = () => {
-        this.setState(prevState => ({
-            dateRef: prevState.dateRef.clone().subtract(1, 'months')
-        }), () => {
-            const { onDateChanged = noop } = this.props;
-            onDateChanged(this.state.dateRef);
-        });
-    }
+  monthChanged = month => {
+    const { onDateChanged = noop, currentMonth } = this.props;
+    onDateChanged(currentMonth.clone().month(month));
+  };
 
-    today = () => {
+  yearChanged = year => {
+    const nYear = parseInt(year, 10);
+    const { onDateChanged = noop, currentMonth } = this.props;
+    onDateChanged(currentMonth.clone().year(nYear));
+  };
 
-        const { todayDate = moment(), onDateChanged = noop } = this.props;
-        this.setState(() => ({
-            dateRef: todayDate
-        }), () => {
-            onDateChanged(this.state.dateRef);
-        });
-    }
-
-    monthChanged = (month) => {
-        this.setState(prevState => ({
-            dateRef: prevState.dateRef.clone().month(month)
-        }), () => {
-            const { onDateChanged = noop } = this.props;
-            onDateChanged(this.state.dateRef);
-        });
-    }
-
-    yearChanged = (year) => {
-        const nYear = parseInt(year, 10);
-        this.setState(prevState => ({
-            dateRef: prevState.dateRef.clone().year(nYear)
-        }), () => {
-            const { onDateChanged = noop } = this.props;
-            onDateChanged(this.state.dateRef);
-        });
-    }
-
-    componentWillReceiveProps = (nextProps) => {
-        const { currentMonth } = nextProps;
-        const { dateRef } = this.props;
-        if (!dateRef || currentMonth.date() !== dateRef.date() || currentMonth.month() !== dateRef.month() || currentMonth.year() !== dateRef.year()) {
-            // different or new
-            this.setState(() => ({
-                dateRef: currentMonth.clone()
-            }));
-        }
-    }
-
-    render = () => {
-        const { dateRef = moment() } = this.state;
-        const {
-            todayDate: now = moment(),
-            onDateChanged = noop,
-            className } = this.props;
-        return (
-            <div className={`CalendarWidget ${className}`}>
-                <div className='month-page'>
-                    <div className='calendar-header'>
-                        <div className='today middle'
-                            onClick={() => {
-                                this.today();
-                            }}>{now.format('MMMM Do YYYY')}</div>
-                        <CalendarYearMonthSelectors
-                            className='left'
-                            year={dateRef.year()}
-                            month={dateRef.month()}
-                            monthChanged={this.monthChanged}
-                            yearChanged={this.yearChanged}
-                        />
-                        <CalendarNavigation
-                            className='right'
-                            navigateUp={this.prevMonth}
-                            navigateDown={this.nextMonth}
-                        />
-                    </div>
-                    <div className='calendar-view'>
-                        <CalendarRow
-                            className='week-header'
-                            days={moment.weekdaysShort()} />
-
-                        <CalendarMonthGrid
-                            date={dateRef}
-                            now={now}
-                            dayClicked={onDateChanged} />
-                    </div>
-                </div>
+  render = () => {
+    const {
+      currentMonth: dateRef = moment(),
+      todayDate: now = moment(),
+      onDateChanged = noop,
+      className,
+    } = this.props;
+    return (
+      <div className={`CalendarWidget ${className}`}>
+        <div className="month-page">
+          <div className="calendar-header">
+            <div
+              className="today middle"
+              onClick={() => {
+                this.today();
+              }}>
+              {now.format('MMMM Do YYYY')}
             </div>
-        );
-    }
+            <CalendarYearMonthSelectors
+              className="left"
+              year={dateRef.year()}
+              month={dateRef.month()}
+              monthChanged={this.monthChanged}
+              yearChanged={this.yearChanged}
+            />
+            <CalendarNavigation
+              className="right"
+              navigateUp={this.prevMonth}
+              navigateDown={this.nextMonth}
+            />
+          </div>
+          <div className="calendar-view">
+            <CalendarRow
+              className="week-header"
+              days={moment.weekdaysShort()}
+            />
+
+            <CalendarMonthGrid
+              date={dateRef}
+              now={now}
+              dayClicked={onDateChanged}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  };
 }
 
 CalendarWidget.propTypes = {
-    className: PropTypes.string,
-    dateRef: momentObj,
-    todayDate: momentObj,
-    currentMonth: momentObj,
-    onDateChanged: PropTypes.func
+  className: PropTypes.string,
+  dateRef: momentObj,
+  todayDate: momentObj,
+  currentMonth: momentObj,
+  onDateChanged: PropTypes.func,
 };
 
 export default CalendarWidget;
