@@ -50,6 +50,6 @@ module.exports = {
     historyApiFallback: true,
     publicPath: '/dist/',
     host: '0.0.0.0',
-    port: 80,
+    port: 8080,
   },
 };
